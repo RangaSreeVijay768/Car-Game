@@ -382,26 +382,6 @@
                 score.innerText = "Score: " + player.score + "\nSpeed: " + player.speed;
             }
         }
-        let car = document.querySelector('.myCar');
-        let road = gameArea.getBoundingClientRect();
-
-        if (player.start) {
-            moveLines();
-            moveEnemy(car);
-
-            if (keys.ArrowUp && player.y > (road.top + 150)) { player.y -= player.speed }
-            if (keys.ArrowDown && player.y < (road.bottom - 85)) { player.y += player.speed }
-            if (keys.ArrowLeft && player.x > 0) { player.x -= player.speed }
-            if (keys.ArrowRight && player.x < (road.width - car.offsetWidth)) { player.x += player.speed }
-
-            car.style.top = player.y + "px";
-            car.style.left = player.x + "px";
-
-            window.requestAnimationFrame(runGame);
-
-            score.innerText = "Score: " + player.score + "\nSpeed: " + player.speed;
-
-        }
 
 
         function initializeGame() {
