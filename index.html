@@ -352,7 +352,12 @@
                     player.score += 5;
                 }
 
-                enemyCar.y += player.speed;
+                let enemySpeed = player.speed;
+                if (window.innerWidth < 768) {
+                    enemySpeed = player.speed * 0.5;
+                }
+
+                enemyCar.y += enemySpeed;
                 enemyCar.style.top = enemyCar.y + "px";
             })
         }
