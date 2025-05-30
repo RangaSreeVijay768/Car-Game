@@ -364,11 +364,11 @@
                 moveLines();
                 moveEnemy(car);
 
-                // Adjust speed for mobile devices (max-width: 767px) based on game area width
                 let adjustedSpeed = player.speed;
-                if (window.innerWidth <= 767) {
-                    // Normalize speed based on game area width (reference width: 420px, as used in large devices)
-                    adjustedSpeed = player.speed * (road.width / 420);
+
+                if (window.innerWidth < 768) {
+                    const scaleFactor = window.innerWidth / 768;
+                    adjustedSpeed = player.speed * scaleFactor;
                 }
 
                 if (keys.ArrowUp && player.y > (road.top + 150)) { player.y -= adjustedSpeed }
@@ -393,10 +393,6 @@
             player.score = 0;
             player.speed = 5;
 
-            if (window.innerWidth <= 767) {
-                let road = gameArea.getBoundingClientRect();
-                player.speed = 5 * (road.width / 420);
-            }
 
             clearInterval(increaseSpeed);
             increaseSpeed = setInterval(function () {
