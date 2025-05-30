@@ -265,7 +265,7 @@
 
         startScreen.addEventListener('click', initializeGame);
 
-        let player = { speed: 1, score: 0 };
+        let player = { speed: 5, score: 0 };
 
         let keys = { ArrowUp: false, ArrowDown: false, ArrowLeft: false, ArrowRight: false }
 
@@ -392,6 +392,11 @@
             player.start = true;
             player.score = 0;
             player.speed = 5;
+
+            if (window.innerWidth <= 767) {
+                let road = gameArea.getBoundingClientRect();
+                player.speed = 5 * (road.width / 420);
+            }
 
             clearInterval(increaseSpeed);
             increaseSpeed = setInterval(function () {
