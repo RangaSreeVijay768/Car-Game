@@ -327,9 +327,15 @@
                 if (item.y >= 700) {
                     item.y -= 750;
                 }
-                item.y += player.speed;
+
+                let lineSpeed = player.speed;
+                if (window.innerWidth < 768) {
+                    lineSpeed = player.speed * 0.5;
+                }
+
+                item.y += lineSpeed;
                 item.style.top = item.y + "px";
-            })
+            });
         }
 
         function endGame() {
