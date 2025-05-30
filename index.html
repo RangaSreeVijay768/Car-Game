@@ -53,15 +53,15 @@
         }
 
         .gameArea {
-            width: 100%;
-            /* max-width: 400px; */
+            width: 98%;
             height: 85%;
+            left: 50%;
+            transform: translateX(-50%);
             background: #2d3436;
-            /* margin: auto; */
             position: fixed;
             overflow: hidden;
-            border-right: 2px dashed #f90000;
-            border-left: 2px dashed #f90000;
+            border-right: 5px dashed #f90000;
+            border-left: 5px dashed #f90000;
         }
 
         .score {
@@ -205,6 +205,7 @@
         }
 
         @media (max-width: 767px) {
+
             .myCar,
             .enemyCar {
                 width: 40px;
