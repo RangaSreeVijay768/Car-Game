@@ -269,9 +269,11 @@
 
         let keys = { ArrowUp: false, ArrowDown: false, ArrowLeft: false, ArrowRight: false }
 
+        let intervalDuration = window.innerWidth < 768 ? 6500 : 5000;
+
         let increaseSpeed = setInterval(function () {
             player.speed++;
-        }, 5000);
+        }, intervalDuration);
 
         document.addEventListener('keydown', keyDown);
         document.addEventListener('keyup', keyUp);
@@ -406,9 +408,11 @@
 
 
             clearInterval(increaseSpeed);
+            let intervalDuration = window.innerWidth < 768 ? 6500 : 5000;
+
             increaseSpeed = setInterval(function () {
                 player.speed++;
-            }, 5000);
+            }, intervalDuration);
 
             window.requestAnimationFrame(runGame);
             for (x = 0; x < 5; x++) {
